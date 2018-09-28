@@ -1,4 +1,4 @@
-#ACME Outreach determinator 
+# ACME Outreach determinator 
 Helps determine the optimal outreach method  for a client based on the weather in Minneapolis.
 
  - The best time to engage a customer via a text message is when it is sunny and warmer than 75 degrees Fahrenheit
