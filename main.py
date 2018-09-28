@@ -9,6 +9,7 @@ def getConditions():
     return conditions
 
 
+# Format and print out the details for each day.
 def format_condition_printout(conditions):
     if not isinstance(conditions, dict):
         raise Exception('Conditions must be a dictionary')
@@ -22,6 +23,7 @@ def format_condition_printout(conditions):
         print("")
 
 
+# Take in the condition values (i.e high temp and the condition) and map them to to the contact type
 def map_conditions_to_contact_method(condition_values):
     condition_temp = int(condition_values['high'])
     condition_name = condition_values['condition_name']
@@ -55,9 +57,9 @@ class ContactType(Enum):
 
 if __name__ == '__main__':
 
-    print('------------------------------------------------------')
-    print('-- Thank you for requesting the best contact method --')
-    print('------------------------------------------------------')
+    print('---------------------------------------------------------')
+    print('-- Thank you for requesting the best engagement method --')
+    print('---------------------------------------------------------')
 
     conditions = getConditions()
     format_condition_printout(conditions)

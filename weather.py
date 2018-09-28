@@ -6,8 +6,9 @@ from enum import Enum
 
 class Weather(object):
     def __init__(self, woeid = None):
-        self.location = woeid or 2452078
+        self.location = woeid or 2452078 # This is the Id for Minneapolis
         self.base_url = "https://query.yahooapis.com/v1/public/yql?"
+        # these map the codes from yahoo's condition types to their root type
         self.condition_map = {
             "sunny": [32],
             "raining": [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
@@ -15,6 +16,7 @@ class Weather(object):
             "other": []
         }
 
+    # Get and format the results from the api.
     def get_weather_conditions(self):
         weather_result = self.get_weather_conditions_from_api(self.location)
 
@@ -38,8 +40,9 @@ class Weather(object):
 
         return data
 
+    # Map the condition from the api to an aggregate type.
     def lookup_aggregate_condition(self, condition_code):
-
+        # if for some reason, we get something weird back for hte code, return UNKNOWN.
         try:
             code = int(condition_code)
         except ValueError:
